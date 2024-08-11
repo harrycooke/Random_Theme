@@ -1,22 +1,29 @@
-import logo from './logo.svg';
+import mumImage from './MumImage.jpg';
 import './App.css';
 
+import React, { useEffect, useState } from 'react'
+import Button from '@mui/material/Button';
+
+
+
+
 function App() {
+  const [theme, setTheme] = useState("Click the button to generate a theme");
+
+const themes = ["Masquerade", "70s", "80s", "90s", "Mamma Mia", "Mamma Mia 2: Here We Go Again", "Beach", "Denim", "Neon", "Prehistoric", "Wild Wild West", "Superhero", "Under the sea", "Abba", "Sparkles", "WWE", "Prom", "Apres ski", "PJ party", "Margaritaville", "Hollywood", "60s", "Tailgate", "Wigs and Hats"];
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img style={{ margin: '10px' }} src={mumImage}  className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {theme}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <Button onClick={() => {
+        var item = themes[Math.floor(Math.random()*themes.length)];
+        setTheme(item);
+        }}
+        variant="contained">Generate a Theme
+      </Button>
       </header>
     </div>
   );
